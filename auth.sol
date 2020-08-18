@@ -13,10 +13,10 @@
 
 pragma solidity >=0.4.23;
 
-contract DSAuthority {
+abstract contract DSAuthority {
     function canCall(
         address src, address dst, bytes4 sig
-    ) public view returns (bool);
+    ) public view virtual returns (bool);
 }
 
 contract DSAuthEvents {
@@ -49,7 +49,7 @@ contract DSAuth is DSAuthEvents {
         emit LogSetAuthority(address(authority));
     }
 
-    modifier auth {
+    modifier auth virtual {
         require(isAuthorized(msg.sender, msg.sig), "ds-auth-unauthorized");
         _;
     }

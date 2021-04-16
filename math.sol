@@ -43,16 +43,16 @@ contract DSMath {
     uint constant RAY = 10 ** 27;
 
     function wmul(uint x, uint y) internal pure returns (uint z) {
-        z = add(mul(x, y), WAD / 2) / WAD;
+        z = mul(x, y) / WAD;
     }
     function rmul(uint x, uint y) internal pure returns (uint z) {
-        z = add(mul(x, y), RAY / 2) / RAY;
+        z = mul(x, y) / RAY;
     }
     function wdiv(uint x, uint y) internal pure returns (uint z) {
-        z = add(mul(x, WAD), y / 2) / y;
+        z = mul(x, WAD) / y;
     }
     function rdiv(uint x, uint y) internal pure returns (uint z) {
-        z = add(mul(x, RAY), y / 2) / y;
+        z = mul(x, RAY) / y;
     }
 
     // This famous algorithm is called "exponentiation by squaring"

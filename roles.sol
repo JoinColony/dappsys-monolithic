@@ -86,7 +86,7 @@ contract DSRoles is DSAuth, DSAuthority
     }
 
     function BITNOT(bytes32 input) internal pure returns (bytes32 output) {
-        return (input ^ bytes32(uint(-1)));
+        return (input ^ bytes32(uint(int(-1))));
     }
 
     function setRootUser(address who, bool enabled)
